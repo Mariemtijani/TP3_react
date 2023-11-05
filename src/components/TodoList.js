@@ -2,6 +2,8 @@ import React , {useState , useEffect} from 'react';
 import './style.css';
 import Task from './Task'
 import { v4 as uuidv4 } from 'uuid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faSquareCheck,faRotateLeft} from  '@fortawesome/free-solid-svg-icons';
 
 export default function Form() {
 
@@ -22,15 +24,7 @@ export default function Form() {
 
     // todo state
     const [todo,setTodo] = useState([
-      {
-          'txt':'reading','id':uuidv4(),'status':false
-      },
-      {
-        'txt':'podcast','id':uuidv4(),'status':false
-     },
-      {
-      'txt':'sport','id':uuidv4(),'status':false
-      }
+     
   ]);
 
 
@@ -110,25 +104,27 @@ const changeTask = (e) => {
     
     <div className='container todoForm'>
 
+     <h3> {currentDay}</h3>  
+
       {/* update task */}
 
       {updateTodo ? (
         <>
-        <div className="row w-75 m-auto">
+        <div className=" row w-75 m-auto">
         <div className="col " >
         <input type="text"
           className='form-control form-control border border-0 border-bottom'
           value={updateTodo && updateTodo.txt} 
           onChange={(e) => changeTask(e)}
           />
-        </div>
-        <div className="col-auto">
-
-          <button className='btn fw-bold updateBtn' 
-          onClick={() => editTodo()}
-          >Edit task</button>
-          <button className='btn fw-bold cancelBtn' 
-           onClick={() => cancel()}>Cancel</button>
+         
+        </div> 
+        <div className="col">
+        <span  title='submit' className=' fw-bold updateBtn' 
+          onClick={() => editTodo()}> <FontAwesomeIcon icon={faSquareCheck}/>
+          </span>
+          <span title='cancel' className=' fw-bold cancelBtn' 
+           onClick={() => cancel()}><FontAwesomeIcon icon = {faRotateLeft}/></span>
         </div>
       </div>
         </>
@@ -136,7 +132,7 @@ const changeTask = (e) => {
         <>
  
       {/* add task form */}
-        <h3> {currentDay}</h3>
+        
         <div className="input-group mb-3 ">
         <input type="text" className="form-control border border-0 border-bottom"
         placeholder="Add task" value={tacheValue} onChange={modifyTach}/>

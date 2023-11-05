@@ -106,24 +106,24 @@
 }
 
 .updateBtn {
-    color: white;
-    background-color: #FAA0A0;
+    color: #71797E;
+    font-size: 20px;
 }
 .updateBtn:hover {
-    background-color:#FAA0A0 ;
-    color: #71797E;
-}
-
-.cancelBtn {
-    color: white;
-    background-color: #71797E;
-    margin-left: 10px;
-}
-
-.cancelBtn:hover {
-    background-color: #71797E;
     color: #FAA0A0;
 }
 
+.cancelBtn {
+    color: #71797E;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.cancelBtn:hover {
+    color: #FAA0A0;
+}
+.row input {
+    width: 270px;
+}
 
 
